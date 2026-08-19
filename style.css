@@ -57,11 +57,11 @@ body {
   padding: 88px 0 96px;
   text-align: center;
 }
-.hero-mark { margin-bottom: 24px; }
-.hero h1 {
-  font-size: clamp(34px, 6vw, 60px);
-  line-height: 1.1;
-  margin: 0 0 20px;
+.hero-logo {
+  width: min(380px, 82%);
+  height: auto;
+  display: block;
+  margin: 0 auto 28px;
 }
 .lede {
   max-width: 640px;
