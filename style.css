@@ -58,7 +58,7 @@ body {
   text-align: center;
 }
 .hero-logo {
-  width: min(570px, 90%);
+  width: min(720px, 95%);
   height: auto;
   display: block;
   margin: 0 auto 28px;
