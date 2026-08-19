@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">QRNix standalone mark for dark backgrounds</title>
+  <desc id="desc">A dark-surface version of the refined QRNix noise-reduction mark.</desc>
+  <g transform="translate(16 16)">
+  <rect width="224" height="224" rx="50" fill="#132A42"/>
+  <path d="M28 112 H113" fill="none" stroke="#7D92A8" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+  <path d="M125 112 H197" fill="none" stroke="#20D99A" stroke-width="4" stroke-linecap="round" opacity=".72"/>
+  <path d="M28 81 V143 M54 54 V170 M79 91 V133 M103 67 V157" fill="none" stroke="#7D92A8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M119 85 V139 M145 100 V124 M171 91 V133 M197 100 V124" fill="none" stroke="#20D99A" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="119" cy="112" r="7" fill="#F5F8FC"/>
+</g>
+</svg>
