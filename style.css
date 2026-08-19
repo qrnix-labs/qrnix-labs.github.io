@@ -1,0 +1,220 @@
+/* QRNix Labs — brand stylesheet
+   Palette from the style guide: navy #0A1A2F, green #20D99A, slate #7D92A8 */
+
+:root {
+  --navy: #0A1A2F;
+  --navy-dark: #071421;
+  --green: #20D99A;
+  --green-word: #20B982;
+  --slate: #7D92A8;
+  --text-slate: #52697E;
+  --off-white: #F5F8FC;
+  --page: #EAF0F4;
+  --line: #CCD7E0;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, "Nimbus Sans", "DejaVu Sans", sans-serif;
+  background: var(--page);
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+.container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+.narrow { max-width: 760px; }
+
+/* ── header ─────────────────────────────────────────────── */
+.site-header {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+.brand img { display: block; }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a {
+  color: var(--off-white);
+  text-decoration: none;
+  font-size: 14px;
+}
+.nav a:hover { color: var(--green); }
+
+/* ── hero ───────────────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  color: var(--off-white);
+  padding: 88px 0 96px;
+  text-align: center;
+}
+.hero-mark { margin-bottom: 24px; }
+.hero h1 {
+  font-size: clamp(34px, 6vw, 60px);
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+.lede {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  color: var(--slate);
+  font-size: 18px;
+}
+.cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: var(--navy);
+  font-weight: bold;
+  padding: 12px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.btn:hover { background: #3fe6b2; }
+.btn-ghost {
+  background: transparent;
+  color: var(--off-white);
+  border: 1px solid var(--slate);
+}
+.btn-ghost:hover { border-color: var(--green); color: var(--green); background: transparent; }
+
+/* ── sections ───────────────────────────────────────────── */
+.section { padding: 72px 0; }
+.section.alt { background: #fff; }
+.section h2 {
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+.section h2 + p { margin-top: 0; }
+.section h3 { font-size: 20px; margin: 28px 0 6px; }
+
+/* ── signal chain ───────────────────────────────────────── */
+.chain {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.chip {
+  background: var(--navy);
+  color: var(--green);
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.arrow { color: var(--slate); font-size: 20px; }
+
+/* ── cards ──────────────────────────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.card h3 { margin-top: 0; }
+.card p { margin-bottom: 0; }
+
+/* ── modes / features ───────────────────────────────────── */
+.mode {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green-word);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.tag {
+  background: var(--navy);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 10px;
+  border-radius: 10px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* ── lists ──────────────────────────────────────────────── */
+.checklist, .steps { padding-left: 22px; }
+.checklist li, .steps li { margin-bottom: 8px; }
+
+/* ── specs ──────────────────────────────────────────────── */
+table.specs {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+table.specs td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+table.specs tr:last-child td { border-bottom: none; }
+table.specs td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+  color: var(--text-slate);
+  width: 140px;
+}
+
+/* ── notes & photo slots ────────────────────────────────── */
+.note {
+  color: var(--text-slate);
+  font-size: 15px;
+  margin-top: 24px;
+}
+.photo-slot {
+  border: 2px dashed var(--slate);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 28px 0;
+  color: var(--text-slate);
+  font-size: 14px;
+  text-align: center;
+  background: #fff;
+}
+.photo-slot img { max-width: 100%; border-radius: 8px; display: block; }
+
+/* ── footer ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--navy-dark);
+  color: var(--slate);
+  font-size: 14px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 0;
+}
+.footer-inner a { color: var(--green); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; padding: 12px 0; }
+  .hero { padding: 56px 0 64px; }
+  .section { padding: 48px 0; }
+}

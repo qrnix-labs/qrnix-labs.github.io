@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QRNix — DSP Noise Reduction for HF Radio</title>
+  <meta name="description" content="QRNix is a standalone DSP noise-reduction box for HF radio. It sits between your radio and your speaker, learns the noise, and removes it — while your signals pass.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="brand"><img src="assets/qrnix-logo-primary.svg" alt="QRNix" width="140"></a>
+    <nav class="nav">
+      <a href="#product">Product</a>
+      <a href="#controls">Controls</a>
+      <a href="#modes">Modes</a>
+      <a href="#features">Features</a>
+      <a href="#shack">In the shack</a>
+      <a href="#specs">Specs</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ══════════════════════════════════════════════════════════════ HERO -->
+  <section class="hero">
+    <div class="container">
+      <img class="hero-mark" src="assets/qrnix-mark.svg" alt="" width="96" height="96">
+      <h1>DSP noise reduction<br>for your HF radio</h1>
+      <p class="lede">QRNix sits between your radio and your speaker. It listens to the
+        noise, learns what it sounds like, and removes it — while weak signals pass
+        through. One box, three modes, no computer required.</p>
+      <div class="cta-row">
+        <a class="btn" href="#product">How it works</a>
+        <a class="btn btn-ghost" href="#shack">Set it up</a>
+      </div>
+      <!-- Photo slot: hero product shot. Replace the figure below when available.
+      <figure class="photo-slot"><img src="assets/product-hero.jpg" alt="QRNix box"><figcaption>QRNix — front panel</figcaption></figure> -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ PRODUCT -->
+  <section id="product" class="section">
+    <div class="container narrow">
+      <h2>The problem</h2>
+      <p>HF noise — band static, QRM, the roar of a bad propagation night — sits on
+        top of the very signals you are trying to hear. Turning up the volume turns
+        up the noise with it. Noise reduction inside the radio helps, but the
+        receiver is not the whole path.</p>
+      <h2>What QRNix does</h2>
+      <p>QRNix is a standalone box that processes the audio <em>between</em> your
+        radio and your speaker or amplifier:</p>
+      <div class="chain">
+        <span>Radio line/headphone out</span><span class="arrow">→</span>
+        <span class="chip">QRNix</span><span class="arrow">→</span>
+        <span>Speaker / amplifier</span>
+      </div>
+      <p>It works with any radio — modern rig or vintage boat anchor — because it
+        only needs the audio that would otherwise go to a speaker. Two modes of
+        noise reduction cover the two situations every HF operator knows: a stable
+        noise floor that never changes, and a band that shifts under you while you
+        tune.</p>
+      <p>Everything is set with four knobs and one button. There is no software to
+        install and no display to configure — the OLED shows what the box is doing,
+        and a <a href="#features">level indicator</a> makes setup a one-time affair.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ CONTROLS -->
+  <section id="controls" class="section alt">
+    <div class="container narrow">
+      <h2>Four knobs, one button</h2>
+      <p>Each knob controls one aspect of the suppression. In practice you set
+        them once per band and forget them.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Reduction</h3>
+          <p>How much of the remaining noise stays. Turn it up to push the noise
+            down; turn it down to keep more of the background. 0–30 dB.</p>
+        </article>
+        <article class="card">
+          <h3>Smoothing</h3>
+          <p>Steadies the output when the noise level wobbles. Too much smoothing
+            can smear fast speech — use only as much as the band demands.</p>
+        </article>
+        <article class="card">
+          <h3>Whitening</h3>
+          <p>Softens the tonal, hissy residue that aggressive suppression can
+            leave behind, making it sound more like natural background.</p>
+        </article>
+        <article class="card">
+          <h3>Aggression</h3>
+          <p>How hard the box works to remove noise. Low settings are transparent;
+            high settings dig out weak signals from heavy noise, at the cost of
+            some character in the audio.</p>
+        </article>
+      </div>
+      <p class="note">The button has two jobs: a quick tap cycles the extra
+        features (<a href="#features">tone-kill and post-filter</a>); holding it
+        captures a noise profile in Spectral mode or clears the features in
+        Bypass.</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════ MODES -->
+  <section id="modes" class="section">
+    <div class="container narrow">
+      <h2>Three modes</h2>
+      <p>A three-position switch selects the mode. Center is off — pure,
+        untouched audio, useful as the reference for everything else.</p>
+
+      <article class="mode">
+        <h3>Bypass <span class="tag">center</span></h3>
+        <p>The radio's audio passes through unchanged. Use it to compare, to
+          A/B your settings, or when the band is quiet and you want zero
+          processing in the path.</p>
+      </article>
+
+      <article class="mode">
+        <h3>Spectral <span class="tag">right</span></h3>
+        <p>You capture the noise once — hold the button for a second during a
+          quiet moment — and QRNix subtracts exactly that noise profile from
+          everything that follows. Because the box knows precisely what the noise
+          looks like, weak signals buried in stable band noise come through
+          remarkably well.</p>
+        <p>Recapture whenever the noise character changes: after retuning, or when
+          the band state shifts. The profile survives mode changes, so you can
+          switch away and back without recapturing.</p>
+      </article>
+
+      <article class="mode">
+        <h3>Adaptive <span class="tag">left</span></h3>
+        <p>No capture needed. The box continuously estimates the noise and updates
+          its suppression as the band changes — ideal while tuning across the
+          band or when the noise floor drifts. Best used when the noise is
+          changing faster than you could recapture a profile.</p>
+      </article>
+
+      <h2>Which mode when?</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Stable noise, weak signals</h3>
+          <p><strong>Spectral.</strong> A captured profile is unambiguous: the box
+            never confuses your noise floor with a weak voice. This is the mode
+            for digging out the faint ones.</p>
+        </article>
+        <article class="card">
+          <h3>Changing conditions</h3>
+          <p><strong>Adaptive.</strong> Tuning, QRM that drifts, a band that
+            fades — the estimator follows. Enter it during a quiet moment if you
+            can; the first second seeds its baseline.</p>
+        </article>
+        <article class="card">
+          <h3>Just listening</h3>
+          <p><strong>Bypass.</strong> Nothing processed, nothing added. The honest
+            reference for what the band actually sounds like.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ FEATURES -->
+  <section id="features" class="section alt">
+    <div class="container narrow">
+      <h2>Two extra features, one button</h2>
+      <p>A quick tap of the button cycles through the feature combinations.
+        The OLED shows what is armed; active features are shown inverted.</p>
+
+      <article class="mode">
+        <h3>Tone-kill <span class="tag">TK</span></h3>
+        <p>Every HF operator knows the sound: another station tuning their
+          transmitter, holding the key for seconds while matching pitch — a
+          steady whistle right on the frequency. Tone-kill detects exactly that
+          signature (a continuous tone in the 600–800 Hz range, held for over a
+          second) and removes it completely, in any mode.</p>
+        <p>It cannot be fooled by real CW: no legitimate key-down lasts that long.
+          Your own keying, beacons, and everything else pass untouched.</p>
+      </article>
+
+      <article class="mode">
+        <h3>Post-filter <span class="tag">PP</span></h3>
+        <p>Aggressive suppression can leave a shimmering, "musical" residue on
+          weak, noisy frames. The post-filter blurs that residue — the output
+          sounds smoother and more natural when the going gets rough. It works in
+          the two noise-reduction modes and does nothing in Bypass.</p>
+      </article>
+
+      <div class="cards">
+        <article class="card">
+          <h3>CLIP — level indicator</h3>
+          <p>If the signal into the box is too hot, the audio clips — and clipping
+            sounds like distortion, not noise. QRNix detects saturation in the
+            digital stream and flashes the top line of the display. Turn the
+            radio's output down (or use the input trim) until the flash stops:
+            that is your level, set once.</p>
+        </article>
+        <article class="card">
+          <h3>Auto input selection</h3>
+          <p>Both line inputs are monitored. QRNix processes the left input by
+            default and automatically switches to the right when it is
+            significantly stronger — handy when a cable or adapter feeds the
+            "wrong" channel.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════ SHACK -->
+  <section id="shack" class="section">
+    <div class="container narrow">
+      <h2>In the shack</h2>
+      <h3>What you need</h3>
+      <ul class="checklist">
+        <li>Your radio — any radio with a line, headphone, or speaker output</li>
+        <li>A speaker or amplifier — the box sits between the radio and it</li>
+        <li>One stereo audio cable (radio → QRNix) and one (QRNix → amplifier)</li>
+        <li>USB power — any phone charger or USB port</li>
+      </ul>
+      <h3>Connecting</h3>
+      <ol class="steps">
+        <li>Connect the radio's line out (or headphone out) to QRNix's <strong>line
+          in</strong>. Speaker outputs work too — QRNix handles the level with its
+          input trim.</li>
+        <li>Connect QRNix's <strong>line out</strong> to your speaker or amplifier.</li>
+        <li>Plug in USB power. The display lights up with the QRNix boot screen.</li>
+        <li>Start with the mode switch in the center (Bypass) and all controls at
+          their minimums. You should hear your radio, unprocessed.</li>
+        <li>Set the level: transmit-adjacent peaks or band noise should not flash
+          the top display line (CLIP). Adjust the radio's output or the input trim
+          until it stops.</li>
+        <li>Turn the mode switch to Spectral or Adaptive and raise the controls
+          until the noise drops and the signals stay.</li>
+      </ol>
+      <!-- Photo slot: shack installation shot. Replace when available.
+      <figure class="photo-slot"><img src="assets/shack-install.jpg" alt="QRNix in the shack"><figcaption>Radio → QRNix → speaker</figcaption></figure> -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════ SPECS -->
+  <section id="specs" class="section alt">
+    <div class="container narrow">
+      <h2>Specifications</h2>
+      <table class="specs">
+        <tbody>
+          <tr><td>Inputs</td><td>Stereo line-in (left processed by default, auto-select to right)</td></tr>
+          <tr><td>Output</td><td>Stereo line-out</td></tr>
+          <tr><td>Modes</td><td>Bypass / Spectral (manual profile) / Adaptive (continuous)</td></tr>
+          <tr><td>Extra features</td><td>Tone-kill, post-filter (button-cycled)</td></tr>
+          <tr><td>Controls</td><td>Reduction, Smoothing, Whitening, Aggression; mode switch; one button</td></tr>
+          <tr><td>Display</td><td>0.96&Prime; OLED — mode, values, profile state, features, CLIP</td></tr>
+          <tr><td>Core</td><td>Teensy 4.0 + Audio Shield, 25 ms frame, 2048-point FFT</td></tr>
+          <tr><td>Power</td><td>USB</td></tr>
+          <tr><td>Firmware</td><td>Open source — LGPL 2.1-or-later</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Photos and the final enclosure are coming; the electronics
+        behind this page are real and shipping in firmware <strong>0.3.5</strong>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs · <a href="https://github.com/qrnix-labs">Open source on GitHub</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
