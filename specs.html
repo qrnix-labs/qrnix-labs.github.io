@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technical Specifications | QRNix</title>
+  <meta name="description" content="Current QRNix technical specifications: DSP path, modes, controls, display, board, firmware, and input limits.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="QRNix home"><img src="assets/qrnix-logo-dark.svg" alt="QRNix, HF DSP noise reduction" width="120" height="46"></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="connect.html">Connect</a>
+      <a href="specs.html" aria-current="page">Specs</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div class="brand-showcase">
+        <img src="assets/qrnix-wordmark-dark.svg" alt="QRNix, HF DSP noise reduction">
+      </div>
+      <div>
+        <p class="eyebrow">Technical specifications</p>
+        <h1>The current QRNix hardware and DSP path.</h1>
+        <p>These facts describe firmware 0.3.5 and the v0.2.0 board design.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reading">
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Audio and operation</p>
+        <h2>At a glance.</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <tbody>
+              <tr><th scope="row">Application</th><td>Standalone DSP noise reduction between a radio audio source and a speaker or amplifier.</td></tr>
+              <tr><th scope="row">Modes</th><td>Bypass, Spectral with manual one-second noise capture, and Adaptive with a continuously updated per-bin estimate.</td></tr>
+              <tr><th scope="row">Input behavior</th><td>Two audio input channels are monitored. QRNix selects the stronger sustained channel and processes the selected signal as mono.</td></tr>
+              <tr><th scope="row">Output behavior</th><td>The selected, processed mono signal feeds both audio outputs.</td></tr>
+              <tr><th scope="row">Source recommendation</th><td>Line output preferred. Controlled headphone output supported. Speaker-level output requires external attenuation before the current line input.</td></tr>
+              <tr><th scope="row">Controls</th><td>Reduction 0 to 30 dB, Smoothing 0 to 100%, Whitening 0 to 100%, and Aggression 0.00 to 2.00; three-position mode switch; one button.</td></tr>
+              <tr><th scope="row">Extra features</th><td>Tone-kill in all modes, Post-filter in Spectral and Adaptive, CLIP input-overload indication, and automatic input selection.</td></tr>
+              <tr><th scope="row">Display</th><td>Optional 0.96 inch SSD1306 OLED, 128 by 64 pixels, I²C address 0x3C. Audio processing continues without it.</td></tr>
+              <tr><th scope="row">Power</th><td>USB.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">DSP engine</p>
+        <h2>One audio path, two noise estimators.</h2>
+        <div class="detail-grid">
+          <article class="detail-card"><h3>Signal path</h3><p>SGTL5000 ADC → STFT → selected noise-reduction core → inverse STFT → SGTL5000 DAC.</p></article>
+          <article class="detail-card"><h3>Transform</h3><p>25 ms frames, rounded to a 2048-point CMSIS-DSP FFT in both noise-reduction modes.</p></article>
+          <article class="detail-card"><h3>Memory invariant</h3><p>Spectral and Adaptive processors are never allocated together. A mode change frees the old processor before creating the next one.</p></article>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Board</p>
+        <h2>Current v0.2.0 PCB design.</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <tbody>
+              <tr><th scope="row">Processor</th><td>Teensy 4.0, NXP i.MX RT1062 ARM Cortex-M7 at 600 MHz, 1 MB RAM, 2 MB flash.</td></tr>
+              <tr><th scope="row">Audio hardware</th><td>Teensy Audio Shield Rev D or D2 with SGTL5000 codec.</td></tr>
+              <tr><th scope="row">Board size</th><td>51.3 by 66.8 mm.</td></tr>
+              <tr><th scope="row">Stack</th><td>Two layers, 1.6 mm nominal thickness.</td></tr>
+              <tr><th scope="row">Front panel hardware</th><td>Four 10 kΩ trim pots, three-position mode switch, button, and OLED provision.</td></tr>
+              <tr><th scope="row">Audio jacks</th><td>Line In and Line Out.</td></tr>
+              <tr><th scope="row">Firmware</th><td>0.3.5, LGPL 2.1-or-later.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Current input limit</p>
+        <h2>Do not mistake the planned trim for fitted hardware.</h2>
+        <aside class="notice notice-warn"><p>The passive, dual-gang input attenuator described in the QRNix research is not yet fitted to the current hardware. Direct speaker-level outputs can hard clip the ADC. Use a line output, a carefully controlled headphone output, or an external attenuating interface.</p></aside>
+      </div>
+
+      <div class="callout-links">
+        <a href="connect.html">Connect your radio</a>
+        <a href="guide.html">Read the user guide</a>
+        <a href="faq.html">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark-dark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs</span>
+    <a href="https://github.com/qrnix-labs">Open source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

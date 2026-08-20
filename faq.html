@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | QRNix</title>
+  <meta name="description" content="Answers about QRNix modes, noise capture, input level, Tone-kill, Post-filter, CLIP, and expected behavior.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="QRNix home"><img src="assets/qrnix-logo-dark.svg" alt="QRNix, HF DSP noise reduction" width="120" height="46"></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="connect.html">Connect</a>
+      <a href="specs.html">Specs</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div class="brand-showcase">
+        <img src="assets/qrnix-wordmark-dark.svg" alt="QRNix, HF DSP noise reduction">
+      </div>
+      <div>
+        <p class="eyebrow">Frequently asked questions</p>
+        <h1>Short answers for normal operating questions.</h1>
+        <p>For wiring and safety, use the connection guide. For the detailed sequence, use the user guide.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reading">
+      <div class="faq">
+        <details open>
+          <summary>What does QRNix do?</summary>
+          <p>It processes radio audio between the source and speaker. Spectral and Adaptive modes estimate noise and reduce it; Bypass passes the audio through as a comparison reference.</p>
+        </details>
+        <details>
+          <summary>Which mode should I use?</summary>
+          <p>Use Spectral for stable noise and weak signals after a clean, one-second noise capture. Use Adaptive while tuning or when the noise floor changes. Use Bypass to compare settings or leave the signal untouched.</p>
+        </details>
+        <details>
+          <summary>Why does Spectral mode need a noise-only capture?</summary>
+          <p>The capture tells QRNix exactly what the current noise looks like. Capturing while wanted audio is present risks putting part of that signal into the profile. Capture again after retuning or when the noise character changes.</p>
+        </details>
+        <details>
+          <summary>Does the Spectral profile survive a mode change?</summary>
+          <p>Yes, it survives a mode change in RAM. It is lost when QRNix resets or loses power.</p>
+        </details>
+        <details>
+          <summary>Why does Adaptive mode sometimes sound wrong just after I switch to it?</summary>
+          <p>Its first frame seeds the baseline. Enter Adaptive during quiet audio when possible, then let it settle as it tracks the changing band.</p>
+        </details>
+        <details>
+          <summary>What causes metallic or musical artifacts?</summary>
+          <p>Too much Aggression can create isolated, rapidly changing spectral bins. Lower Aggression first, then use only enough Smoothing and Whitening to improve intelligibility.</p>
+        </details>
+        <details>
+          <summary>What does the button do?</summary>
+          <p>Tap cycles Tone-kill and Post-filter states. Holding the button captures a Spectral noise profile, clears feature states in Bypass, and has no action in Adaptive. The <a href="guide.html#button">user guide</a> shows the exact behavior by mode.</p>
+        </details>
+        <details>
+          <summary>Does Tone-kill work in Bypass?</summary>
+          <p>Yes. Tone-kill is available in all three modes. Post-filter only affects the two noise-reduction modes, because it reshapes the denoiser gain spectrum.</p>
+        </details>
+        <details>
+          <summary>What does CLIP mean?</summary>
+          <p>The input is overloaded. Lower the radio source level until the display no longer indicates CLIP, then leave that source setting fixed before using Spectral capture.</p>
+        </details>
+        <details>
+          <summary>Can I connect my radio speaker output directly?</summary>
+          <p>No, not on the current hardware. The passive input attenuator is not yet fitted, and a speaker-level source can hard clip the line input. Use a line output, controlled headphone output, or external attenuation. See <a href="connect.html">Connect your radio</a>.</p>
+        </details>
+        <details>
+          <summary>Does QRNix need a computer during normal operation?</summary>
+          <p>No. The radio, QRNix, and listening system form a standalone audio path. A computer is only relevant when building or flashing firmware.</p>
+        </details>
+      </div>
+
+      <div class="callout-links">
+        <a href="connect.html">Connect your radio</a>
+        <a href="guide.html">Read the user guide</a>
+        <a href="specs.html">View specifications</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark-dark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs</span>
+    <a href="https://github.com/qrnix-labs">Open source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

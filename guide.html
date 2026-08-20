@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QRNix User Guide</title>
+  <meta name="description" content="Set up and operate QRNix: choose a mode, capture a Spectral profile, tune the four controls, and use the button features.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="QRNix home"><img src="assets/qrnix-logo-dark.svg" alt="QRNix, HF DSP noise reduction" width="120" height="46"></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a>
+      <a href="guide.html" aria-current="page">Guide</a>
+      <a href="connect.html">Connect</a>
+      <a href="specs.html">Specs</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div class="brand-showcase">
+        <img src="assets/qrnix-wordmark-dark.svg" alt="QRNix, HF DSP noise reduction">
+      </div>
+      <div>
+        <p class="eyebrow">User guide</p>
+        <h1>Start simple. Let the band tell you what it needs.</h1>
+        <p>QRNix has one mode switch, four controls, and one button. The operating sequence below keeps the first session predictable.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="subnav" aria-label="Guide sections">
+    <div class="container subnav-inner">
+      <a href="#first-session">First session</a>
+      <a href="#choose-a-mode">Choose a mode</a>
+      <a href="#controls">Controls</a>
+      <a href="#button">Button and display</a>
+    </div>
+  </nav>
+
+  <section id="first-session" class="section">
+    <div class="container reading">
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">First session</p>
+        <h2>Work from Bypass outward.</h2>
+        <ol class="step-list">
+          <li><strong>Connect a line-level or controlled headphone source.</strong> Start with the radio source level low. The <a href="connect.html">connection guide</a> covers the current input limits.</li>
+          <li><strong>Select Bypass.</strong> Confirm that you hear normal radio audio before adding processing.</li>
+          <li><strong>Set the input level once.</strong> Reduce the radio source level if the display signals CLIP. Keep that level fixed before capturing a Spectral profile.</li>
+          <li><strong>Select a noise-reduction mode.</strong> Use Spectral for stable noise or Adaptive for changing conditions.</li>
+          <li><strong>Start with low Aggression.</strong> Raise it until static falls, but back off if speech becomes metallic or thin.</li>
+          <li><strong>Set Reduction, then add Smoothing and Whitening only when useful.</strong> Reduction changes residual depth. The other two controls refine the character of what remains.</li>
+        </ol>
+      </div>
+
+      <div id="choose-a-mode" class="content-block">
+        <p class="eyebrow eyebrow-green">Mode switch</p>
+        <h2>Use the mode that matches the noise.</h2>
+        <div class="detail-grid">
+          <article class="detail-card">
+            <h3>Bypass</h3>
+            <p>Center switch position. Audio passes through unchanged. Use it as the reference for every adjustment.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Spectral</h3>
+            <p>Capture one second of representative noise with no wanted voice. Best for stable noise and weak signals. Recapture after retuning or a real noise change.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Adaptive</h3>
+            <p>QRNix updates its noise estimate continuously. Best while tuning or when conditions change faster than a manual capture can keep up. Enter during quiet audio when possible.</p>
+          </article>
+        </div>
+      </div>
+
+      <div id="controls" class="content-block">
+        <p class="eyebrow eyebrow-green">Four controls</p>
+        <h2>Know what each adjustment trades.</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <tbody>
+              <tr><th scope="row">Reduction</th><td>0 to 30 dB. Sets how much residual noise is mixed back. It does not decide what is voice or noise.</td></tr>
+              <tr><th scope="row">Smoothing</th><td>0 to 100%. Steadies the reference spectrum over time. Higher values can smear fast speech.</td></tr>
+              <tr><th scope="row">Whitening</th><td>0 to 100%. Redistributes tonal residue to make it less distracting. Its effect is subtle when Reduction is already high.</td></tr>
+              <tr><th scope="row">Aggression</th><td>0.00 to 2.00. Controls oversubtraction. Higher settings remove more noise but can create metallic or musical artifacts.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="notice notice-info"><p><strong>In Bypass, the four controls have no audio effect.</strong> That is intentional: it makes Bypass a clean reference.</p></aside>
+      </div>
+
+      <div id="button" class="content-block">
+        <p class="eyebrow eyebrow-green">One button</p>
+        <h2>Tap for helpers. Hold for the mode-specific action.</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Mode</th><th>Tap</th><th>Hold for at least 500 ms</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Bypass</th><td>Cycles Tone-kill on and off.</td><td>Clears armed Tone-kill and Post-filter.</td></tr>
+              <tr><th scope="row">Spectral</th><td>Cycles none, Tone-kill, Tone-kill plus Post-filter, Post-filter, then none.</td><td>Captures a new noise profile.</td></tr>
+              <tr><th scope="row">Adaptive</th><td>Cycles none, Tone-kill, Tone-kill plus Post-filter, Post-filter, then none.</td><td>No action.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The OLED shows the active mode, control values, profile state, and armed features. CLIP inverts the mode line while the input is overloaded.</p>
+      </div>
+
+      <div class="callout-links">
+        <a href="connect.html">Connect your radio</a>
+        <a href="faq.html">Read the FAQ</a>
+        <a href="specs.html">View specifications</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark-dark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs</span>
+    <a href="https://github.com/qrnix-labs">Open source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>
