@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connect Your Radio | QRNix</title>
+  <meta name="description" content="Connect a radio safely to QRNix, set the source level with CLIP, and understand the current speaker-output limitation.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="QRNix home"><img src="assets/qrnix-logo-dark.svg" alt="QRNix, HF DSP noise reduction" width="120" height="46"></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="connect.html" aria-current="page">Connect</a>
+      <a href="specs.html">Specs</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div class="brand-showcase">
+        <img src="assets/qrnix-wordmark-dark.svg" alt="QRNix, HF DSP noise reduction">
+      </div>
+      <div>
+        <p class="eyebrow">Connection guide</p>
+        <h1>Connect the audio path safely.</h1>
+        <p>QRNix belongs between a controlled radio audio source and your speaker or amplifier. Set the source level once, then leave it stable for reliable noise reduction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reading">
+      <aside class="notice notice-warn">
+        <p><strong>Current hardware is line-level first.</strong> The passive input attenuator is a design record and is not yet fitted. Do not connect an amplified radio speaker output directly to QRNix. It can exceed the current ADC input range by 45 to 75 times and will hard clip. Use a radio line output, a controlled headphone output, or a proper external attenuator or line-output interface.</p>
+      </aside>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Signal path</p>
+        <h2>Radio audio → QRNix → speaker.</h2>
+        <div class="signal-path" aria-label="Radio audio flows through QRNix to a speaker">
+          <span class="signal-node">Radio line or headphone out</span>
+          <span class="signal-arrow" aria-hidden="true">→</span>
+          <span class="signal-node signal-node-active">QRNix line in</span>
+          <span class="signal-arrow" aria-hidden="true">→</span>
+          <span class="signal-node">QRNix line out</span>
+          <span class="signal-arrow" aria-hidden="true">→</span>
+          <span class="signal-node">Powered speaker or amplifier</span>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Connection steps</p>
+        <h2>Make the path, then establish the input level.</h2>
+        <ol class="step-list">
+          <li><strong>Choose a suitable source.</strong> Use the radio's line output when available. A headphone output can work if its level is kept controlled.</li>
+          <li><strong>Connect source to QRNix line in.</strong> Use an appropriate stereo audio cable or adapter for the radio and QRNix jacks.</li>
+          <li><strong>Connect QRNix line out to the listening system.</strong> Use a powered speaker or amplifier input, not a passive speaker directly.</li>
+          <li><strong>Apply USB power.</strong> QRNix starts in its normal boot sequence and the OLED is optional to audio processing.</li>
+          <li><strong>Start in Bypass with the source level low.</strong> Bring the radio audio up until you hear clean, unprocessed audio through the listening system.</li>
+          <li><strong>Watch for CLIP.</strong> If the display inverts its mode line, lower the radio source level. Once CLIP stays clear, keep the source setting fixed before using Spectral capture.</li>
+        </ol>
+      </div>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Why level matters</p>
+        <h2>Set it once, then let the DSP compare like with like.</h2>
+        <p>Spectral mode stores its captured noise profile in absolute digital levels. Changing the input level after capture makes the profile stale, which can lead to over- or under-suppression. The CLIP indicator exists to make the initial level setting visible without test equipment.</p>
+        <div class="detail-grid">
+          <article class="detail-card">
+            <h3>Line output</h3>
+            <p>Preferred. Set it low first, then raise only until the normal listening level is clean and CLIP stays clear.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Headphone output</h3>
+            <p>Usable with care. Keep the radio volume low at first and use CLIP as the hard limit.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Speaker output</h3>
+            <p>Requires a proper attenuating interface before QRNix. Do not connect it directly to the current line input.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">If audio is wrong</p>
+        <h2>Three quick checks.</h2>
+        <div class="faq">
+          <details><summary>No audio reaches the speaker</summary><p>Return to Bypass, check that QRNix is powered, confirm the radio is feeding line in, and verify that the listening system is connected to QRNix line out and powered.</p></details>
+          <details><summary>The audio is distorted or the display indicates CLIP</summary><p>Lower the radio source level. A speaker-level output must not feed the current QRNix line input directly.</p></details>
+          <details><summary>Spectral mode changes little</summary><p>Capture again during a representative noise-only moment. If the band changed after capture, the old profile is no longer representative.</p></details>
+        </div>
+      </div>
+
+      <div class="callout-links">
+        <a href="guide.html">Operate QRNix</a>
+        <a href="faq.html">Read the FAQ</a>
+        <a href="specs.html">View specifications</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark-dark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs</span>
+    <a href="https://github.com/qrnix-labs">Open source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>
