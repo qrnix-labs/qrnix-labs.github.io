@@ -63,16 +63,16 @@
           <li><strong>Choose a suitable source.</strong> Use the radio's line output when available. A headphone output can work if its level is kept controlled.</li>
           <li><strong>Connect source to QRNix line in.</strong> Use an appropriate stereo audio cable or adapter for the radio and QRNix jacks.</li>
           <li><strong>Connect QRNix line out to the listening system.</strong> Use a powered speaker or amplifier input, not a passive speaker directly.</li>
-          <li><strong>Apply USB power.</strong> QRNix starts in its normal boot sequence and the OLED is optional to audio processing.</li>
+          <li><strong>Apply USB power.</strong> QRNix starts in its normal boot sequence; the OLED then shows the live status screen.</li>
           <li><strong>Start in Bypass with the source level low.</strong> Bring the radio audio up until you hear clean, unprocessed audio through the listening system.</li>
-          <li><strong>Watch for CLIP.</strong> If the display inverts its mode line, lower the radio source level. Once CLIP stays clear, keep the source setting fixed before using Spectral capture.</li>
+          <li><strong>Watch for CLIP.</strong> The OLED indicates an overload by inverting the mode line: the top line shows inverted colors while the input is clipping. When you see that, lower the radio source level until the inversion stops. Once CLIP stays clear, keep the source setting fixed before using Spectral capture.</li>
         </ol>
       </div>
 
       <div class="content-block">
         <p class="eyebrow eyebrow-green">Why level matters</p>
         <h2>Set it once, then let the DSP compare like with like.</h2>
-        <p>Spectral mode stores its captured noise profile in absolute digital levels. Changing the input level after capture makes the profile stale, which can lead to over- or under-suppression. The CLIP indicator exists to make the initial level setting visible without test equipment.</p>
+        <p>Spectral mode stores its captured noise profile in absolute digital levels. Changing the input level after capture makes the profile stale, which can lead to over- or under-suppression. The CLIP indicator exists to make the initial level setting checkable without test equipment: the OLED inverts its mode line whenever the input overloads.</p>
         <div class="detail-grid">
           <article class="detail-card">
             <h3>Line output</h3>
@@ -94,7 +94,7 @@
         <h2>Three quick checks.</h2>
         <div class="faq">
           <details><summary>No audio reaches the speaker</summary><p>Return to Bypass, check that QRNix is powered, confirm the radio is feeding line in, and verify that the listening system is connected to QRNix line out and powered.</p></details>
-          <details><summary>The audio is distorted or the display indicates CLIP</summary><p>Lower the radio source level. A speaker-level output must not feed the current QRNix line input directly.</p></details>
+          <details><summary>The audio is distorted or the OLED shows the CLIP inversion</summary><p>Lower the radio source level until the mode line stops inverting. A speaker-level output must not feed the current QRNix line input directly.</p></details>
           <details><summary>Spectral mode changes little</summary><p>Capture again during a representative noise-only moment. If the band changed after capture, the old profile is no longer representative.</p></details>
         </div>
       </div>
