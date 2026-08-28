@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Downloads | QRNix</title>
-  <meta name="description" content="Download QRNix Manager for Windows and Linux — portable archives with SHA-256 checksums. macOS support is coming.">
+  <meta name="description" content="Download QRNix Manager for Windows, Linux, and macOS — portable archives with SHA-256 checksums.">
   <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -33,7 +33,7 @@
       <div>
         <p class="eyebrow">Downloads</p>
         <h1>Download QRNix Manager.</h1>
-        <p>Current release: v0.4.0. Portable archives, no installer, no account. Each archive contains a single executable.</p>
+        <p>Current release: v0.4.1. Portable archives, no installer, no account. Each archive contains a single executable.</p>
       </div>
     </div>
   </section>
@@ -45,28 +45,26 @@
           <p class="eyebrow eyebrow-green">Platforms</p>
           <h2>Pick your operating system.</h2>
         </div>
-        <p>Windows and Linux are fully supported. macOS is coming.</p>
+        <p>Windows, Linux, and macOS (Apple Silicon) are supported.</p>
       </div>
       <div class="band-grid modes-grid">
         <article class="feature-band band-sky">
           <p class="band-kicker">Windows</p>
-          <h3>Windows x86_64</h3>
-          <p class="band-metric">qrnix-manager-v0.4.0-x86_64-pc-windows-msvc.zip · 1.5 MB</p>
+          <h3>x86_64 (1.7 MB)</h3>
+          <p><a class="btn" href="downloads/qrnix-manager/qrnix-manager-x86_64-pc-windows-msvc.zip">Download for Windows</a></p>
           <p>Contains <code>qrnix-manager.exe</code>. Extract the archive and run it from a terminal.</p>
-          <p><a class="btn" href="downloads/qrnix-manager/v0.4.0/qrnix-manager-v0.4.0-x86_64-pc-windows-msvc.zip">Download for Windows</a></p>
         </article>
         <article class="feature-band band-mint">
           <p class="band-kicker">Linux</p>
-          <h3>Linux x86_64</h3>
-          <p class="band-metric">qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz · 1.8 MB</p>
+          <h3>x86_64 (1.9 MB)</h3>
+          <p><a class="btn" href="downloads/qrnix-manager/qrnix-manager-x86_64-unknown-linux-gnu.tar.gz">Download for Linux</a></p>
           <p>Single binary, glibc 2.35 or newer. Extract the archive and run <code>./qrnix-manager</code> from a terminal.</p>
-          <p><a class="btn" href="downloads/qrnix-manager/v0.4.0/qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz">Download for Linux</a></p>
         </article>
         <article class="feature-band band-slate">
           <p class="band-kicker">macOS</p>
-          <h3>macOS (Apple Silicon + Intel)</h3>
-          <p class="band-metric">Coming soon</p>
-          <p>The universal2 build is in progress; hardware acceptance testing is pending. This page will list it when it ships.</p>
+          <h3>Apple Silicon + Intel (3.5 MB)</h3>
+          <p><a class="btn" href="downloads/qrnix-manager/qrnix-manager-aarch64-apple-darwin.tar.gz">Download for macOS</a></p>
+          <p>Extract the archive and run <code>./qrnix-manager</code> from a terminal. Works on Apple Silicon and Intel.</p>
         </article>
       </div>
     </div>
@@ -78,13 +76,15 @@
         <p class="eyebrow eyebrow-green">Run it</p>
         <h2>First run in about a minute.</h2>
         <ol class="step-list">
-          <li><strong>Extract the archive.</strong> Linux: <code>tar xzf qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz</code>. Windows: open the zip and copy <code>qrnix-manager.exe</code> anywhere.</li>
+          <li><strong>Extract the archive.</strong> Linux: <code>tar xzf qrnix-manager-x86_64-unknown-linux-gnu.tar.gz</code>. Windows: open the zip and copy <code>qrnix-manager.exe</code> anywhere.</li>
           <li><strong>Run the executable from a terminal.</strong> The interface is a terminal app, not a GUI window.</li>
           <li><strong>Plug in QRNix.</strong> The app auto-connects to a single unit; with several, a picker lists them by serial.</li>
           <li><strong>No hardware handy?</strong> <code>--demo</code> runs the full flow against a scripted device. <code>--version</code> prints the app and wire-contract versions.</li>
         </ol>
         <aside class="notice notice-warn">
-          <p><strong>Linux permissions.</strong> Opening the serial port requires the account to be in the <code>dialout</code> group: <code>sudo usermod -a -G dialout $USER</code>, then log out and back in. Flashing also opens the device's USB node; a Teensy udev rule covers both.</p>
+          <p><strong>Linux permissions.</strong> Opening the serial port requires the account to be in the <code>dialout</code> group. Run:</p>
+          <p><code class="command-block">sudo usermod -a -G dialout $USER</code></p>
+          <p>Then log out and back in. Flashing also opens the device's USB node; a Teensy udev rule covers both.</p>
         </aside>
         <p>Uninstall is deleting the file — there is no installer and nothing is written outside the archive.</p>
       </div>
@@ -96,13 +96,14 @@
       <div class="content-block">
         <p class="eyebrow eyebrow-green">Checksums</p>
         <h2>Verify what you downloaded.</h2>
-        <p>Each release is published with a SHA-256 digest. The same digests are mirrored in the <a href="downloads/qrnix-manager/v0.4.0/SHA256SUMS">SHA256SUMS</a> file next to the archives.</p>
+        <p>Each release is published with a SHA-256 digest. The same digests are mirrored in the <a href="downloads/qrnix-manager/SHA256SUMS">SHA256SUMS</a> file next to the archives.</p>
         <div class="table-wrap">
           <table class="spec-table">
             <thead><tr><th>File</th><th>SHA-256</th></tr></thead>
             <tbody>
-              <tr><td>qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz</td><td><code>62032657a844d4ad6d12fce7c4b4572b439022ddd9815a0ebaa1092b6e8a0577</code></td></tr>
-              <tr><td>qrnix-manager-v0.4.0-x86_64-pc-windows-msvc.zip</td><td><code>bc88b992b83b1769a858999df902ff5f20c54503de0ad5d6fed315dd612e44f1</code></td></tr>
+              <tr><td>qrnix-manager-x86_64-pc-windows-msvc.zip</td><td><code>d7434420b5a73378f4fb6ae9a60ca8b83bff37dd58db62dac5cd9ed7f2529e92</code></td></tr>
+              <tr><td>qrnix-manager-x86_64-unknown-linux-gnu.tar.gz</td><td><code>5ee8bb6798c5f390909ac2cc7121751f95ad720545daa4967454026a772f9402</code></td></tr>
+              <tr><td>qrnix-manager-aarch64-apple-darwin.tar.gz</td><td><code>a4c26ea5f09d1cd181f4befa7698c894fd1662deb03630404ee30de0c3d7c016</code></td></tr>
             </tbody>
           </table>
         </div>

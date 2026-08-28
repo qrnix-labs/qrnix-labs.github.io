@@ -148,6 +148,7 @@ summary:focus-visible {
 .feature-band p + p { margin-top: 12px; }
 .band-kicker { color: var(--band, var(--green-word)); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .band-metric { color: var(--navy); font-size: 18px; font-weight: 700; }
+.feature-band .btn { margin-top: 12px; }
 .band-mint { --band: #20b982; background: #e9fcf5; }
 .band-slate { --band: #6c8299; background: #edf2f6; }
 .band-sky { --band: #1587bd; background: #e6f5fb; }
@@ -207,6 +208,17 @@ summary:focus-visible {
 .notice p { margin: 0; }
 .notice-warn { background: #fff6e5; border-left-color: #c97c19; color: #57380c; }
 .notice-info { background: #e8f5fb; border-left-color: #1683b5; }
+.command-block {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: block;
+  margin: 12px 0;
+  overflow-x: auto;
+  padding: 10px 14px;
+  user-select: all;
+  white-space: nowrap;
+}
 .table-wrap { border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; }
 .spec-table { border-collapse: collapse; min-width: 620px; width: 100%; }
 .spec-table th,
