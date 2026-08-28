@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QRNix Manager | QRNix</title>
+  <meta name="description" content="QRNix Manager is a free companion app for the QRNix noise-reduction box: live monitoring, firmware version checks, and verified firmware updates over USB.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="QRNix home"><img src="assets/qrnix-logo-dark.svg" alt="QRNix, HF DSP noise reduction" width="120" height="46"></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="connect.html">Connect</a>
+      <a href="specs.html">Specs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="manager.html" aria-current="page">Manager</a>
+      <a href="download.html">Downloads</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div class="brand-showcase">
+        <img src="assets/qrnix-wordmark-dark.svg" alt="QRNix, HF DSP noise reduction">
+      </div>
+      <div>
+        <p class="eyebrow">Companion app</p>
+        <h1>Your QRNix, in your terminal.</h1>
+        <p>QRNix Manager is a free companion app that connects to the box over USB. Watch the live signal, check the installed firmware, and update it — all from one terminal window.</p>
+        <div class="cta-row">
+          <a class="btn" href="download.html">Download QRNix Manager</a>
+          <a class="btn btn-ghost" href="#first-steps">See first steps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-green">What it does</p>
+          <h2>Monitor, check, update.</h2>
+        </div>
+        <p>QRNix Manager talks to the device over the same USB port that powers it. No cloud, no account — the link is direct.</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>Live Signal Deck</h3>
+          <p>Plots the last 60 seconds of Input, Level, and Output as paired trends, and shows the connected unit — serial, live or stale state, controls, and health — without guessing.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Firmware version check</h3>
+          <p>Compares the installed firmware against the latest release, so the box is never silently out of date.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Verified updates</h3>
+          <p>Browses firmware releases, downloads the hex, verifies its SHA-256 digest, and flashes it through the Teensy bootloader. A bad download is never written to the device.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reading">
+      <aside class="notice notice-info">
+        <p><strong>The box works without the app.</strong> QRNix is a complete audio product on its own: mode switch, four controls, one button. The Manager app adds monitoring and maintenance; it never replaces the front panel.</p>
+      </aside>
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Platforms</p>
+        <h2>Runs in any terminal.</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <tbody>
+              <tr><th scope="row">Windows</th><td>Supported — x86_64, single executable.</td></tr>
+              <tr><th scope="row">Linux</th><td>Supported — x86_64, glibc 2.35 or newer, single executable.</td></tr>
+              <tr><th scope="row">macOS</th><td>In progress — Apple Silicon and Intel build exists; hardware acceptance is pending.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a class="btn" href="download.html">Get the download</a></p>
+      </div>
+      <div id="first-steps" class="content-block">
+        <p class="eyebrow eyebrow-green">First steps</p>
+        <h2>Running the app.</h2>
+        <ol class="step-list">
+          <li><strong>Download the archive for your platform</strong> from the <a href="download.html">downloads page</a>.</li>
+          <li><strong>Extract it and run the executable from a terminal.</strong> The interface is a terminal app, not a GUI window.</li>
+          <li><strong>Plug in QRNix.</strong> The app auto-connects when a single unit is present; with several, a picker lists them by serial.</li>
+          <li><strong>No hardware handy?</strong> <code>--demo</code> runs the full flow — monitoring, updates, flashing — against a scripted device. <code>--version</code> prints the app version and the wire contract it speaks.</li>
+        </ol>
+        <aside class="notice notice-warn">
+          <p><strong>Linux permissions.</strong> Opening the serial port requires the account to be in the <code>dialout</code> group: <code>sudo usermod -a -G dialout $USER</code>, then log out and back in. Flashing also opens the device's USB node; a Teensy udev rule covers both.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="container reading">
+      <div class="callout-links">
+        <a href="download.html">Download QRNix Manager</a>
+        <a href="guide.html">Read the user guide</a>
+        <a href="faq.html">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark-dark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs</span>
+    <a href="https://github.com/qrnix-labs">Open source on GitHub</a>
+    <a href="mailto:info&#64;qrnix&#46;com?subject=Website%20inquiry" target="_blank" rel="noopener">Email info&#64;qrnix&#46;com</a>
+  </div>
+</footer>
+</body>
+</html>

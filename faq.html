@@ -49,7 +49,7 @@
         </details>
         <details>
           <summary>Why does Spectral mode need a noise-only capture?</summary>
-          <p>The capture tells QRNix exactly what the current noise looks like. Capturing while wanted audio is present risks putting part of that signal into the profile. Capture again after retuning or when the noise character changes.</p>
+          <p>The capture tells QRNix exactly what the current noise looks like. Capturing while wanted audio is present risks putting part of that signal into the profile. Capture again after retuning or when the noise character changes. The same capture is the first step of auto-tune, so the noise-only rule applies there too.</p>
         </details>
         <details>
           <summary>Does the Spectral profile survive a mode change?</summary>
@@ -65,7 +65,16 @@
         </details>
         <details>
           <summary>What does the button do?</summary>
-          <p>Tap cycles Tone-kill and Post-filter states. Holding the button captures a Spectral noise profile, clears feature states in Bypass, and has no action in Adaptive. The <a href="guide.html#button">user guide</a> shows the exact behavior by mode.</p>
+          <p>Tap cycles Tone-kill and Post-filter states. Holding the button in Spectral mode captures a noise profile and auto-tunes the four controls, or clears a latched tune. Holding in Bypass clears feature states; holding in Adaptive has no action. The <a href="guide.html#button">user guide</a> shows the exact behavior by mode.</p>
+        </details>
+        <details>
+          <summary>What is QRNix Manager?</summary>
+          <p>A free companion app that runs in a terminal. It connects to QRNix over USB to show live signal trends, compare the installed firmware with the latest release, and install verified firmware updates. Windows and Linux are supported today; macOS is coming. See the <a href="download.html">downloads page</a>.</p>
+        </details>
+        <details>
+          <summary>What is auto-tune?</summary>
+          <p>Holding the button in Spectral mode captures one second of noise and automatically sets Reduction, Smoothing, Whitening, and Aggression to match. Press again to cancel. After a tune, each knob can be taken back to manual one at a time. See the <a href="guide.html#auto-tune">user guide</a>.</p>
+        </details> The <a href="guide.html#button">user guide</a> shows the exact behavior by mode.</p>
         </details>
         <details>
           <summary>Does Tone-kill work in Bypass?</summary>
@@ -81,7 +90,7 @@
         </details>
         <details>
           <summary>Does QRNix need a computer during normal operation?</summary>
-          <p>No. The radio, QRNix, and listening system form a standalone audio path. A computer is only relevant when building or flashing firmware.</p>
+          <p>No. The radio, QRNix, and listening system form a standalone audio path. A computer is optional: the free QRNix Manager app can monitor the device and update firmware over USB when you want it.</p>
         </details>
       </div>
 

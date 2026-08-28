@@ -2,7 +2,9 @@
 
 QRNix Labs website — product showcase for the QRNix DSP noise-reduction box.
 
-- `index.html` — single-page site: product, controls, modes, features (TK/PP/CLIP), shack setup, specs
+- `index.html` — single-page site: product, controls, modes, features, auto-tune, companion app
+- `manager.html` — the QRNix Manager companion app page
+- `download.html` — QRNix Manager downloads (archives under `downloads/`, SHA-256 checksums on the page)
 - `style.css` — brand stylesheet (colors from the style guide)
 - `assets/` — web-ready brand assets copied from the qrnix-labs/brand repo
 
