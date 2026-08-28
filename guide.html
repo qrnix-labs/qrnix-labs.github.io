@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QRNix User Guide</title>
-  <meta name="description" content="Set up and operate QRNix: choose a mode, capture a Spectral profile, tune the four controls, and use the button features.">
+  <meta name="description" content="Set up and operate QRNix: choose a mode, capture a Spectral profile, tune the four controls, auto-tune, and use the button features.">
   <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -42,6 +42,7 @@
       <a href="#choose-a-mode">Choose a mode</a>
       <a href="#controls">Controls</a>
       <a href="#button">Button and display</a>
+      <a href="#auto-tune">Auto-tune</a>
     </div>
   </nav>
 
@@ -70,7 +71,7 @@
           </article>
           <article class="detail-card">
             <h3>Spectral</h3>
-            <p>Capture one second of representative noise with no wanted voice. Best for stable noise and weak signals. Recapture after retuning or a real noise change.</p>
+            <p>Capture one second of representative noise with no wanted voice. Best for stable noise and weak signals. Recapture after retuning or a real noise change. Holding the button also auto-tunes the four controls to that capture.</p>
           </article>
           <article class="detail-card">
             <h3>Adaptive</h3>
@@ -103,12 +104,27 @@
             <thead><tr><th>Mode</th><th>Tap</th><th>Hold for at least 500 ms</th></tr></thead>
             <tbody>
               <tr><th scope="row">Bypass</th><td>Cycles Tone-kill on and off.</td><td>Clears armed Tone-kill and Post-filter.</td></tr>
-              <tr><th scope="row">Spectral</th><td>Cycles none, Tone-kill, Tone-kill plus Post-filter, Post-filter, then none.</td><td>Captures a new noise profile.</td></tr>
+              <tr><th scope="row">Spectral</th><td>Cycles none, Tone-kill, Tone-kill plus Post-filter, Post-filter, then none.</td><td>Captures a new noise profile and auto-tunes the four controls; clears a latched tune.</td></tr>
               <tr><th scope="row">Adaptive</th><td>Cycles none, Tone-kill, Tone-kill plus Post-filter, Post-filter, then none.</td><td>No action.</td></tr>
             </tbody>
           </table>
         </div>
         <p>The OLED shows the active mode, control values, profile state, and armed features. CLIP inverts the mode line while the input is overloaded.</p>
+      </div>
+
+      <div id="auto-tune" class="content-block">
+        <p class="eyebrow eyebrow-green">Auto-tune</p>
+        <h2>Let QRNix set the controls for you.</h2>
+        <p>Auto-tune runs from Spectral mode. It captures the same one-second noise profile as a normal capture, then searches the four controls for the best match to that noise and locks the result.</p>
+        <ol class="step-list">
+          <li><strong>Select Spectral and wait for a noise-only moment.</strong> Quiet audio is fine, but wanted voice inside the capture window will be treated as noise.</li>
+          <li><strong>Hold the button for at least 500 ms.</strong> QRNix captures one second of input. If the input is clipping or too quiet, the tune aborts with a full-screen notice instead of guessing.</li>
+          <li><strong>Listen while it searches.</strong> The sweep is brief and audible as candidate settings pass through the box.</li>
+          <li><strong>Let it lock.</strong> The winning values latch and the OLED shows <strong>Tuned</strong>. Press the button while the tune is running to cancel it and restore the previous settings.</li>
+        </ol>
+        <h3>After a tune</h3>
+        <p>The tuned values stay in control even if the knobs move. To take a control back, park its knob at the tuned value for a moment — QRNix hands that parameter to the knob, and it stays manual from then on. When all four have been handed back, the box is fully manual again. Holding the button in Spectral mode clears a latched tune and returns to the manual pots.</p>
+        <aside class="notice notice-info"><p><strong>The tuned preset survives mode switches</strong> and stays active in both noise-reduction modes. It is dormant in Bypass, so Bypass remains a clean reference.</p></aside>
       </div>
 
       <div class="callout-links">

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Downloads | QRNix</title>
+  <meta name="description" content="Download QRNix Manager for Windows and Linux — portable archives with SHA-256 checksums. macOS support is coming.">
+  <link rel="icon" type="image/svg+xml" href="assets/qrnix-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="QRNix home"><img src="assets/qrnix-logo-dark.svg" alt="QRNix, HF DSP noise reduction" width="120" height="46"></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="connect.html">Connect</a>
+      <a href="specs.html">Specs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="manager.html">Manager</a>
+      <a href="download.html" aria-current="page">Downloads</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div class="brand-showcase">
+        <img src="assets/qrnix-wordmark-dark.svg" alt="QRNix, HF DSP noise reduction">
+      </div>
+      <div>
+        <p class="eyebrow">Downloads</p>
+        <h1>Download QRNix Manager.</h1>
+        <p>Current release: v0.4.0. Portable archives, no installer, no account. Each archive contains a single executable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-green">Platforms</p>
+          <h2>Pick your operating system.</h2>
+        </div>
+        <p>Windows and Linux are fully supported. macOS is coming.</p>
+      </div>
+      <div class="band-grid modes-grid">
+        <article class="feature-band band-sky">
+          <p class="band-kicker">Windows</p>
+          <h3>Windows x86_64</h3>
+          <p class="band-metric">qrnix-manager-v0.4.0-x86_64-pc-windows-msvc.zip · 1.5 MB</p>
+          <p>Contains <code>qrnix-manager.exe</code>. Extract the archive and run it from a terminal.</p>
+          <p><a class="btn" href="downloads/qrnix-manager/v0.4.0/qrnix-manager-v0.4.0-x86_64-pc-windows-msvc.zip">Download for Windows</a></p>
+        </article>
+        <article class="feature-band band-mint">
+          <p class="band-kicker">Linux</p>
+          <h3>Linux x86_64</h3>
+          <p class="band-metric">qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz · 1.8 MB</p>
+          <p>Single binary, glibc 2.35 or newer. Extract the archive and run <code>./qrnix-manager</code> from a terminal.</p>
+          <p><a class="btn" href="downloads/qrnix-manager/v0.4.0/qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz">Download for Linux</a></p>
+        </article>
+        <article class="feature-band band-slate">
+          <p class="band-kicker">macOS</p>
+          <h3>macOS (Apple Silicon + Intel)</h3>
+          <p class="band-metric">Coming soon</p>
+          <p>The universal2 build is in progress; hardware acceptance testing is pending. This page will list it when it ships.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container reading">
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Run it</p>
+        <h2>First run in about a minute.</h2>
+        <ol class="step-list">
+          <li><strong>Extract the archive.</strong> Linux: <code>tar xzf qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz</code>. Windows: open the zip and copy <code>qrnix-manager.exe</code> anywhere.</li>
+          <li><strong>Run the executable from a terminal.</strong> The interface is a terminal app, not a GUI window.</li>
+          <li><strong>Plug in QRNix.</strong> The app auto-connects to a single unit; with several, a picker lists them by serial.</li>
+          <li><strong>No hardware handy?</strong> <code>--demo</code> runs the full flow against a scripted device. <code>--version</code> prints the app and wire-contract versions.</li>
+        </ol>
+        <aside class="notice notice-warn">
+          <p><strong>Linux permissions.</strong> Opening the serial port requires the account to be in the <code>dialout</code> group: <code>sudo usermod -a -G dialout $USER</code>, then log out and back in. Flashing also opens the device's USB node; a Teensy udev rule covers both.</p>
+        </aside>
+        <p>Uninstall is deleting the file — there is no installer and nothing is written outside the archive.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reading">
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">Checksums</p>
+        <h2>Verify what you downloaded.</h2>
+        <p>Each release is published with a SHA-256 digest. The same digests are mirrored in the <a href="downloads/qrnix-manager/v0.4.0/SHA256SUMS">SHA256SUMS</a> file next to the archives.</p>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>File</th><th>SHA-256</th></tr></thead>
+            <tbody>
+              <tr><td>qrnix-manager-v0.4.0-x86_64-unknown-linux-gnu.tar.gz</td><td><code>62032657a844d4ad6d12fce7c4b4572b439022ddd9815a0ebaa1092b6e8a0577</code></td></tr>
+              <tr><td>qrnix-manager-v0.4.0-x86_64-pc-windows-msvc.zip</td><td><code>bc88b992b83b1769a858999df902ff5f20c54503de0ad5d6fed315dd612e44f1</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>On Linux or macOS, verify from the same directory as the download:</p>
+        <p><code>echo "&lt;digest&gt;  &lt;archive&gt;" | sha256sum -c -</code></p>
+      </div>
+
+      <div class="callout-links">
+        <a href="manager.html">About QRNix Manager</a>
+        <a href="guide.html">Read the user guide</a>
+        <a href="faq.html">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/qrnix-mark-dark.svg" alt="" width="28" height="28">
+    <span>© 2026 QRNix Labs</span>
+    <a href="https://github.com/qrnix-labs">Open source on GitHub</a>
+    <a href="mailto:info&#64;qrnix&#46;com?subject=Website%20inquiry" target="_blank" rel="noopener">Email info&#64;qrnix&#46;com</a>
+  </div>
+</footer>
+</body>
+</html>
