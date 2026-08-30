@@ -68,6 +68,100 @@
     </div>
   </section>
 
+  <section class="section section-dark" id="monitor">
+    <div class="container reading">
+      <div class="content-block">
+        <p class="eyebrow eyebrow-green">The Monitor</p>
+        <h2>Watch the live signal deck.</h2>
+        <p>QRNix Manager auto-connects over the same USB cable that powers the box and renders the status stream — one line per second — as a live dashboard: paired signal trends, operating state, and link health, with the connected unit's identity and freshness always on screen.</p>
+      </div>
+<div class="term-shot-wrap">
+<img class="term-shot" src="assets/manager/monitor-v4.png" alt="QRNix Manager monitor: session strip, operating and controls, 60-second signal trends, adaptive metrics, health, and runtime footer" width="1080">
+</div>
+      <p class="term-note">Illustrative frame — the same rendering you get with the box plugged in.</p>
+      <div class="content-block">
+        <h3>What you're looking at</h3>
+        <div class="legend-grid">
+          <div class="legend-item">
+            <h4>Session strip</h4>
+            <p>Who is connected and how fresh the link is. The serial carries an explicit <span class="t-green">VERIFIED</span>/<span class="t-green">UNVERIFIED</span> state, and the last-line age is marked <span class="t-green">LIVE</span> or <span class="t-green">STALE</span> — a frozen screen is never mistaken for a live one.</p>
+          </div>
+          <div class="legend-item">
+            <h4>Reboot and crash banner</h4>
+            <p>A device reboot or CrashReport never scrolls past silently: the banner stays until you dismiss it with <code>d</code>.</p>
+          </div>
+          <div class="legend-item">
+            <h4>Operating strip and controls</h4>
+            <p>The front panel in text: mode, source, Tone-kill and post-filter states, clip indication, and the four controls as compact values.</p>
+          </div>
+          <div class="legend-item">
+            <h4>Audio trends</h4>
+            <p>The last 60 seconds of Input, Level, and Output at the 1 Hz cadence, paired Left/Right on independent AUTO scales. <code>p</code> pauses the view — and marks it <code>PAUSED</code> — when you want to study a moment.</p>
+          </div>
+          <div class="legend-item">
+            <h4>Adaptive metrics</h4>
+            <p>When the firmware reports the NR2 tail, the deck adds SNR average/min/max, band counts, gain, and mix. Without the tail it says so — it never guesses.</p>
+          </div>
+          <div class="legend-item">
+            <h4>Health and footer</h4>
+            <p>DSP blocks, bad blocks, and unparsed line count stay visible. The footer compares the installed firmware with the latest release — checked on connect and on <code>r</code>, never on a timer, so the app works fully offline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="firmware">
+    <div class="container reading">
+      <div class="content-block">
+        <p class="eyebrow">Firmware</p>
+        <h2>Update from the same terminal.</h2>
+        <p>The Firmware module — <code>Tab</code> from the Monitor — replaces the old PlatformIO and bootloader-flasher workflow: browse releases, download a digest-verified hex, review what will happen, and flash, without leaving the app.</p>
+      </div>
+<div class="term-shot-wrap">
+<img class="term-shot" src="assets/manager/firmware-v4.png" alt="QRNix Manager firmware module: release list with the selected release highlighted" width="1080">
+</div>
+      <p class="term-note">The release list — qrnix-firmware releases newest first. <code>d</code> downloads the selected hex; the artifact state after a verified download is shown below.</p>
+<div class="term-shot-wrap">
+<img class="term-shot" src="assets/manager/review-v4.png" alt="QRNix Manager flash review: the digest-verified target and unit identity before flashing" width="1080">
+</div>
+      <p class="term-note">The flash review opens over the release list. Every gate below is re-checked at Start, not trusted from earlier in the session.</p>
+<div class="term-shot-wrap">
+<img class="term-shot" src="assets/manager/journey-v4.png" alt="QRNix Manager update journey: the five flash stages with the post-flash verification running" width="1080">
+</div>
+      <p class="term-note">The five-stage journey — 1 SELECTED → 2 VERIFIED → 3 REVIEW → 4 FLASH → 5 VERIFY. The write gauge tracks the hex upload; when it completes, the QRNix reboots with the new firmware and the app waits for the device to report its version.</p>
+      <div class="content-block">
+        <h3>Nothing gets flashed by accident</h3>
+        <ol class="step-list">
+          <li><strong>Download with <code>d</code>.</strong> <code>↑</code>/<code>↓</code> selects a release, <code>d</code> downloads its hex on a background thread with a progress gauge. The file is SHA-256 verified against the digest GitHub publishes for it, then cached atomically — and re-verified on every reuse. A mismatch is re-downloaded, never accepted.</li>
+          <li><strong>Flash with <code>f</code>.</strong> <code>f</code> opens the flash review, which names the prepared target, the connected unit's serial with its explicit VERIFIED/UNVERIFIED state, the installed version, and the path from installed to target. The safety gates are re-checked fresh at Start: a target below wire contract v0.3.13 is refused up front — the manager could not read the device afterward — and with more than one QRNix present the flash is refused, so the wrong unit can never be written.</li>
+          <li><strong>Confirm with <code>Enter</code>.</strong> The review's <code>[Enter] Start flash</code> begins the journey: the app sends a reboot request over the live USB serial link and the QRNix reboots into its bootloader — no button needed. If the bootloader never appears, the app says so and the Program button is the fallback.</li>
+          <li><strong>Watch the upload, then the reboot.</strong> The UPDATE JOURNEY panel tracks the five stages, and the hex lands behind a live progress gauge. When the write completes, the QRNix reboots with the new firmware and the app waits for the device to report its version — <code>flashed v0.4.0 · device reports v0.4.0</code> — before the update is done.</li>
+        </ol>
+        <h3>Key map</h3>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Key</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tab / Shift-Tab</th><td>Switch between the Monitor and Firmware modules.</td></tr>
+              <tr><th scope="row">↑ / ↓ (or j / k)</th><td>Port picker and release selection.</td></tr>
+              <tr><th scope="row">Enter</th><td>Connect to the selected port — or confirm the flash from the review.</td></tr>
+              <tr><th scope="row">r</th><td>Re-run the firmware-version check (Monitor) or refresh the release list (Firmware).</td></tr>
+              <tr><th scope="row">d</th><td>Dismiss the crash/reboot banner (Monitor) or download/cancel a release (Firmware).</td></tr>
+              <tr><th scope="row">f</th><td>Flash: open the review for the verified artifact (Firmware).</td></tr>
+              <tr><th scope="row">p</th><td>Pause and resume the live view.</td></tr>
+              <tr><th scope="row">u</th><td>Advance the self-update flow: check, download, apply at quit.</td></tr>
+              <tr><th scope="row">c</th><td>Rescan serial ports (Monitor).</td></tr>
+              <tr><th scope="row">? / Esc</th><td>Open and close the help overlay.</td></tr>
+              <tr><th scope="row">q</th><td>Quit.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Self-updates follow the same discipline as firmware: <code>u</code> checks for a newer manager build, downloads it with a progress gauge, and applies it when you quit — the running binary is never overwritten.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container reading">
       <aside class="notice notice-info">
@@ -94,11 +188,7 @@
           <li><strong>Download the archive for your platform</strong> from the <a href="download.html">downloads page</a>.</li>
           <li><strong>Extract it and run the executable from a terminal.</strong> The interface is a terminal app, not a GUI window.</li>
           <li><strong>Plug in QRNix.</strong> The app auto-connects when a single unit is present; with several, a picker lists them by serial.</li>
-          <li><strong>No hardware handy?</strong> <code>--demo</code> runs the full flow — monitoring, updates, flashing — against a scripted device. <code>--version</code> prints the app version and the wire contract it speaks.</li>
         </ol>
-        <aside class="notice notice-warn">
-          <p><strong>Linux permissions.</strong> Opening the serial port requires the account to be in the <code>dialout</code> group: <code>sudo usermod -a -G dialout $USER</code>, then log out and back in. Flashing also opens the device's USB node; a Teensy udev rule covers both.</p>
-        </aside>
       </div>
     </div>
   </section>

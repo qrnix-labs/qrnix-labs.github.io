@@ -33,7 +33,7 @@
       <div>
         <p class="eyebrow">Downloads</p>
         <h1>Download QRNix Manager.</h1>
-        <p>Current release: v0.4.1. Portable archives, no installer, no account. Each archive contains a single executable.</p>
+        <p><span id="dl-release"></span>Portable archives, no installer, no account. Each archive contains a single executable.</p>
       </div>
     </div>
   </section>
@@ -50,19 +50,19 @@
       <div class="band-grid modes-grid">
         <article class="feature-band band-sky">
           <p class="band-kicker">Windows</p>
-          <h3>x86_64 (1.7 MB)</h3>
+          <h3>x86_64 <span class="dl-size" id="dl-size-windows"></span></h3>
           <p><a class="btn" href="downloads/qrnix-manager/qrnix-manager-x86_64-pc-windows-msvc.zip">Download for Windows</a></p>
           <p>Contains <code>qrnix-manager.exe</code>. Extract the archive and run it from a terminal.</p>
         </article>
         <article class="feature-band band-mint">
           <p class="band-kicker">Linux</p>
-          <h3>x86_64 (1.9 MB)</h3>
+          <h3>x86_64 <span class="dl-size" id="dl-size-linux"></span></h3>
           <p><a class="btn" href="downloads/qrnix-manager/qrnix-manager-x86_64-unknown-linux-gnu.tar.gz">Download for Linux</a></p>
           <p>Single binary, glibc 2.35 or newer. Extract the archive and run <code>./qrnix-manager</code> from a terminal.</p>
         </article>
         <article class="feature-band band-slate">
           <p class="band-kicker">macOS</p>
-          <h3>Apple Silicon + Intel (3.5 MB)</h3>
+          <h3>Apple Silicon + Intel <span class="dl-size" id="dl-size-macos"></span></h3>
           <p><a class="btn" href="downloads/qrnix-manager/qrnix-manager-aarch64-apple-darwin.tar.gz">Download for macOS</a></p>
           <p>Extract the archive and run <code>./qrnix-manager</code> from a terminal. Works on Apple Silicon and Intel.</p>
         </article>
@@ -96,19 +96,21 @@
       <div class="content-block">
         <p class="eyebrow eyebrow-green">Checksums</p>
         <h2>Verify what you downloaded.</h2>
-        <p>Each release is published with a SHA-256 digest. The same digests are mirrored in the <a href="downloads/qrnix-manager/SHA256SUMS">SHA256SUMS</a> file next to the archives.</p>
+        <p>Each release is published with a SHA-256 checksum. The same checksums are mirrored in the <a href="downloads/qrnix-manager/SHA256SUMS">SHA256SUMS</a> file next to the archives.</p>
         <div class="table-wrap">
-          <table class="spec-table">
+          <table class="spec-table" id="dl-checksums">
             <thead><tr><th>File</th><th>SHA-256</th></tr></thead>
-            <tbody>
-              <tr><td>qrnix-manager-x86_64-pc-windows-msvc.zip</td><td><code>d7434420b5a73378f4fb6ae9a60ca8b83bff37dd58db62dac5cd9ed7f2529e92</code></td></tr>
-              <tr><td>qrnix-manager-x86_64-unknown-linux-gnu.tar.gz</td><td><code>5ee8bb6798c5f390909ac2cc7121751f95ad720545daa4967454026a772f9402</code></td></tr>
-              <tr><td>qrnix-manager-aarch64-apple-darwin.tar.gz</td><td><code>a4c26ea5f09d1cd181f4befa7698c894fd1662deb03630404ee30de0c3d7c016</code></td></tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
-        <p>On Linux or macOS, verify from the same directory as the download:</p>
-        <p><code>echo "&lt;digest&gt;  &lt;archive&gt;" | sha256sum -c -</code></p>
+        <p id="dl-checksum-fallback" hidden>Couldn't load the checksum list — verify against the <a href="downloads/qrnix-manager/SHA256SUMS">SHA256SUMS</a> file next to the archives:</p>
+        <p id="dl-checksum-fallback-cmd" hidden><code class="command-block">echo "&lt;sha-256&gt;  &lt;file&gt;" | sha256sum -c -</code></p>
+        <noscript>
+          <p>Verify against the <a href="downloads/qrnix-manager/SHA256SUMS">SHA256SUMS</a> file next to the archives:</p>
+          <p><code class="command-block">echo "&lt;sha-256&gt;  &lt;file&gt;" | sha256sum -c -</code></p>
+        </noscript>
+        <p>On Linux or macOS, verify from the same directory as the download. Replace <code>&lt;sha-256&gt;</code> with your checksum and <code>&lt;file&gt;</code> with the name of the downloaded file:</p>
+        <p><code class="command-block">echo "&lt;sha-256&gt;  &lt;file&gt;" | sha256sum -c -</code></p>
       </div>
 
       <div class="callout-links">
@@ -128,5 +130,61 @@
     <a href="mailto:info&#64;qrnix&#46;com?subject=Website%20inquiry" target="_blank" rel="noopener">Email info&#64;qrnix&#46;com</a>
   </div>
 </footer>
+<script>
+  // Live release data: version, archive sizes, and SHA-256 checksums come
+  // straight from the published downloads/qrnix-manager/ files on every
+  // render, so the page can never drift from a release.
+  (async () => {
+    const DL = 'downloads/qrnix-manager';
+    const ARCHIVES = {
+      'dl-size-windows': 'qrnix-manager-x86_64-pc-windows-msvc.zip',
+      'dl-size-linux': 'qrnix-manager-x86_64-unknown-linux-gnu.tar.gz',
+      'dl-size-macos': 'qrnix-manager-aarch64-apple-darwin.tar.gz',
+    };
+    try {
+      const [versionRes, sumsRes] = await Promise.all([
+        fetch(DL + '/latest.txt', { cache: 'no-store' }),
+        fetch(DL + '/SHA256SUMS', { cache: 'no-store' }),
+      ]);
+      if (!versionRes.ok || !sumsRes.ok) throw new Error('release files missing');
+      const version = (await versionRes.text()).trim();
+      if (version) {
+        document.getElementById('dl-release').textContent =
+          'Current release: ' + version + '. ';
+      }
+      const rows = document.createDocumentFragment();
+      for (const line of (await sumsRes.text()).split('\n')) {
+        const m = line.match(/^([0-9a-f]{64})\s{2}(\S+)$/);
+        if (!m) continue;
+        const tr = document.createElement('tr');
+        const name = document.createElement('td');
+        name.textContent = m[2];
+        const digest = document.createElement('td');
+        digest.append(Object.assign(document.createElement('code'), { textContent: m[1] }));
+        tr.append(name, digest);
+        rows.append(tr);
+      }
+      if (!rows.childElementCount) throw new Error('SHA256SUMS is empty');
+      document.querySelector('#dl-checksums tbody').replaceChildren(rows);
+    } catch {
+      document.getElementById('dl-release')?.remove();
+      document.querySelectorAll('.dl-size').forEach(el => el.remove());
+      document.getElementById('dl-checksums')?.remove();
+      document.getElementById('dl-checksum-fallback').hidden = false;
+      document.getElementById('dl-checksum-fallback-cmd').hidden = false;
+    }
+    // Archive sizes (best effort — a HEAD failure just hides the size).
+    for (const [id, name] of Object.entries(ARCHIVES)) {
+      try {
+        const res = await fetch(DL + '/' + name, { method: 'HEAD', cache: 'no-store' });
+        const bytes = res.ok ? parseInt(res.headers.get('content-length'), 10) : 0;
+        if (bytes > 0) {
+          document.getElementById(id).textContent =
+            '(' + (bytes / 1048576).toFixed(1) + ' MB)';
+        }
+      } catch { /* size stays hidden */ }
+    }
+  })();
+</script>
 </body>
 </html>

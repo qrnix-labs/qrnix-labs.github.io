@@ -208,6 +208,13 @@ summary:focus-visible {
 .notice p { margin: 0; }
 .notice-warn { background: #fff6e5; border-left-color: #c97c19; color: #57380c; }
 .notice-info { background: #e8f5fb; border-left-color: #1683b5; }
+.term-shot-wrap { padding: 20px 24px; }
+.term-shot { display: block; height: auto; margin: 0 auto; max-width: 100%; }
+.term-note { color: var(--text-slate); font-size: 13px; margin: 6px 0 0; }
+.t-green { color: var(--green); }
+.legend-grid { display: grid; gap: 18px 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 26px; }
+.legend-item h4 { color: var(--green); font-size: 15px; margin: 0 0 6px; }
+.legend-item p { color: #c6d3df; font-size: 15px; margin: 0; }
 .command-block {
   background: #fff;
   border: 1px solid var(--line);
@@ -248,7 +255,8 @@ summary:focus-visible {
   .features-grid,
   .link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .modes-grid,
-  .detail-grid { grid-template-columns: 1fr; }
+  .detail-grid,
+  .legend-grid { grid-template-columns: 1fr; }
   .section-heading { align-items: start; flex-direction: column; gap: 14px; }
 }
 
