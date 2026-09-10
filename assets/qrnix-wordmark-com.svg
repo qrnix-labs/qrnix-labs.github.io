@@ -1,15 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 836 320" role="img" aria-labelledby="title desc">
-  <title id="title">QRNix primary horizontal logo</title>
-  <desc id="desc">The refined noise-reduction mark with the QRNix wordmark and HF DSP Noise Reduction descriptor.</desc>
-  <g transform="translate(40 48)">
-  <rect width="224" height="224" rx="50" fill="#0A1A2F"/>
-  <path d="M28 112 H113" fill="none" stroke="#7D92A8" stroke-width="4" stroke-linecap="round" opacity=".65"/>
-  <path d="M125 112 H197" fill="none" stroke="#20D99A" stroke-width="4" stroke-linecap="round" opacity=".72"/>
-  <path d="M28 81 V143 M54 54 V170 M79 91 V133 M103 67 V157" fill="none" stroke="#7D92A8" stroke-width="12" stroke-linecap="round"/>
-  <path d="M119 85 V139 M145 100 V124 M171 91 V133 M197 100 V124" fill="none" stroke="#20D99A" stroke-width="12" stroke-linecap="round"/>
-  <circle cx="119" cy="112" r="7" fill="#F5F8FC"/>
-</g>
-  <svg x="316" y="80" width="416" height="136" viewBox="0 0 416 136" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 660 254" role="img" aria-labelledby="title desc">
+  <title id="title">QRNix.com wordmark</title>
+  <desc id="desc">The QRNix wordmark with the .com suffix set at 50%, green rule ending on the m, and descriptor.</desc>
+  <svg x="40" y="38" width="416" height="136" viewBox="0 0 416 136" aria-hidden="true">
 <defs>
 <g>
 <g id="word-light-glyph-0-0">
@@ -41,8 +33,32 @@
 <use xlink:href="#word-light-glyph-0-4" x="340" y="99.143555"/>
 </g>
 </svg>
-  <line x1="324" y1="218" x2="749.7" y2="218" stroke="#20B982" stroke-width="7" stroke-linecap="round"/>
-  <svg x="324" y="234" width="431" height="23" viewBox="0 0 431 23" aria-hidden="true">
+  <svg x="461" y="87.57" width="159" height="68" viewBox="0 0 159 68" aria-hidden="true">
+<defs>
+<g>
+<g id="com-light-glyph-0-0">
+<path d="M 14.546875 -9.921875 L 4.359375 -9.921875 L 4.359375 0 L 14.546875 0 Z M 14.546875 -9.921875 "/>
+</g>
+<g id="com-light-glyph-0-1">
+<path d="M 35.5 -22.984375 C 34.8125 -31.953125 28.90625 -37.328125 19.65625 -37.328125 C 8.640625 -37.328125 2.3125 -30.125 2.3125 -17.609375 C 2.3125 -5.515625 8.640625 1.5625 19.515625 1.5625 C 28.421875 1.5625 34.609375 -3.9375 35.5 -12.71875 L 26.390625 -12.71875 C 25.234375 -7.953125 23.328125 -6.125 19.515625 -6.125 C 14.6875 -6.125 11.828125 -10.40625 11.828125 -17.609375 C 11.828125 -21.140625 12.515625 -24.34375 13.671875 -26.515625 C 14.75 -28.5625 16.859375 -29.640625 19.578125 -29.640625 C 23.453125 -29.640625 25.296875 -27.8125 26.390625 -22.984375 Z M 35.5 -22.984375 "/>
+</g>
+<g id="com-light-glyph-0-2">
+<path d="M 20.46875 -37.328125 C 9.25 -37.328125 2.375 -29.921875 2.375 -17.890625 C 2.375 -5.78125 9.25 1.5625 20.53125 1.5625 C 31.75 1.5625 38.6875 -5.78125 38.6875 -17.609375 C 38.6875 -30.0625 31.953125 -37.328125 20.46875 -37.328125 Z M 20.53125 -29.640625 C 25.765625 -29.640625 29.171875 -24.953125 29.171875 -17.75 C 29.171875 -10.875 25.640625 -6.125 20.53125 -6.125 C 15.375 -6.125 11.90625 -10.8125 11.90625 -17.890625 C 11.90625 -24.953125 15.375 -29.640625 20.53125 -29.640625 Z M 20.53125 -29.640625 "/>
+</g>
+<g id="com-light-glyph-0-3">
+<path d="M 4.078125 -36.71875 L 4.078125 0 L 13.59375 0 L 13.59375 -22.03125 C 13.59375 -26.59375 16.046875 -29.234375 20.125 -29.234375 C 23.328125 -29.234375 25.296875 -27.40625 25.296875 -24.484375 L 25.296875 0 L 34.8125 0 L 34.8125 -22.03125 C 34.8125 -26.515625 37.265625 -29.234375 41.34375 -29.234375 C 44.546875 -29.234375 46.515625 -27.40625 46.515625 -24.484375 L 46.515625 0 L 56.03125 0 L 56.03125 -25.96875 C 56.03125 -33.109375 51.6875 -37.328125 44.34375 -37.328125 C 39.640625 -37.328125 36.453125 -35.703125 33.59375 -31.890625 C 31.828125 -35.359375 28.15625 -37.328125 23.59375 -37.328125 C 19.375 -37.328125 16.65625 -35.96875 13.53125 -32.15625 L 13.53125 -36.71875 Z M 4.078125 -36.71875 "/>
+</g>
+</g>
+</defs>
+<g fill="rgb(3.921569%, 10.196078%, 18.431373%)" fill-opacity="1">
+<use xlink:href="#com-light-glyph-0-0" x="0" y="49.572266"/>
+<use xlink:href="#com-light-glyph-0-1" x="19" y="49.572266"/>
+<use xlink:href="#com-light-glyph-0-2" x="57" y="49.572266"/>
+<use xlink:href="#com-light-glyph-0-3" x="99" y="49.572266"/>
+</g>
+</svg>
+  <line x1="46" y1="176" x2="612.5" y2="176" stroke="#20B982" stroke-width="7" stroke-linecap="round"/>
+  <svg x="46" y="195" width="431" height="23" viewBox="0 0 431 23" aria-hidden="true">
 <defs>
 <g>
 <g id="desc-light-glyph-0-0">
