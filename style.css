@@ -64,7 +64,7 @@ summary:focus-visible {
   gap: 28px;
 }
 .brand { display: inline-flex; flex: 0 0 auto; }
-.brand img { display: block; height: 46px; width: auto; }
+.brand img { display: block; height: 70px; width: auto; }
 .nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .nav a {
   color: var(--off-white);
@@ -262,7 +262,7 @@ summary:focus-visible {
 
 @media (max-width: 640px) {
   .container { width: min(100% - 32px, 1240px); }
-  .header-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding: 14px 0; }
+  .header-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding: 0; }
   .nav { flex-wrap: nowrap; max-width: 100%; overflow-x: auto; padding-bottom: 3px; width: 100%; }
   .hero { padding: 64px 0; }
   .section { padding: 56px 0; }
